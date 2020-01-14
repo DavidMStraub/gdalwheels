@@ -7,8 +7,11 @@ jobs:
 
 install:
   - python -m pip install twine cibuildwheel==1.1.0
+  
+before_script:
+  - wget https://files.pythonhosted.org/packages/77/99/adf9183a8cd02a3a4b7b35d6d3c14be1fd133801d7a2f8cc6f296f7584df/GDAL-3.0.3.tar.gz
+  - tar -xzf GDAL-3.0.3.tar.gz
 
 script:
   - ls
-  - echo $CIBW_BEFORE_BUILD
-  - python -m cibuildwheel --output-dir wheelhouse gdal-3.0.3/swig/python
+  - echo $CIBW_BEFORE_BUILD GDAL-3.0.3
